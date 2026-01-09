@@ -3,20 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="100dp"
     android:fillViewport="true">
 
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="96dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SUNTEK Serial Port Debugging Assistant"
             android:textSize="24sp"
+            android:layout_gravity="center"
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
 
@@ -33,6 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            style="@style/Widget.AppCompat.Spinner.DropDown"
+            android:background="@android:drawable/edit_text"
             android:minHeight="48dp"
             android:padding="12dp" />
 
@@ -57,44 +62,13 @@
         <!-- 打开/关闭按钮 -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/openCloseBtn"
-            android:layout_width="match_parent"
+            android:layout_width="600px"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Open the serial port"
             android:layout_marginBottom="16dp" />
 
-        <!-- 接收区 -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="receiving area:"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginBottom="8dp"
-            app:cardElevation="2dp">
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fillViewport="true">
-
-                <TextView
-                    android:id="@+id/receiveTextView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="Waiting for data..."
-                    android:textSize="14sp"
-                    android:fontFamily="monospace"
-                    android:textIsSelectable="true"
-                    android:background="@android:color/transparent" />
-
-            </ScrollView>
-        </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -134,7 +108,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Input the data to be sent"
+            android:hint="Input the data to be sent Example:435341573dff or FF0000"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_marginBottom="8dp">
 
@@ -151,8 +125,9 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sendBtn"
-            android:layout_width="match_parent"
+            android:layout_width="600px"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Send data" />
 
         <!-- 状态显示 -->
@@ -164,7 +139,41 @@
             android:textSize="12sp"
             android:textColor="@android:color/darker_gray"
             android:layout_marginTop="16dp" />
+        <!-- 接收区 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="receiving area:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="8dp"
+            app:cardElevation="2dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <TextView
+                    android:id="@+id/receiveTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Waiting for data..."
+                    android:textSize="14sp"
+                    android:fontFamily="monospace"
+                    android:textIsSelectable="true"
+                    android:background="@android:color/transparent" />
+
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
 
 </ScrollView>
